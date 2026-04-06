@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-writing-agent"
+version = "1.0.0"
+description = "Your Personal AI Writing Assistant - Open Source, Privacy-First, Enterprise-Grade"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = ["ai", "writing", "content", "automation", "llm", "langchain", "agent"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "langchain>=0.2.0",
+    "langchain-core>=0.2.0",
+    "langchain-openai>=0.1.0",
+    "langchain-anthropic>=0.1.0",
+    "langchain-ollama>=0.1.0",
+    "gradio>=4.0.0",
+    "streamlit>=1.30.0",
+    "rich>=13.0.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "pre-commit>=3.0.0",
+]
+ui = [
+    "gradio>=4.0.0",
+    "streamlit>=1.30.0",
+]
+
+[project.scripts]
+ai-writer = "src.cli:main"
+ai-writing-agent = "src.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/ai-writing-agent"
+Documentation = "https://github.com/yourusername/ai-writing-agent#readme"
+Repository = "https://github.com/yourusername/ai-writing-agent"
+Issues = "https://github.com/yourusername/ai-writing-agent/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v"
